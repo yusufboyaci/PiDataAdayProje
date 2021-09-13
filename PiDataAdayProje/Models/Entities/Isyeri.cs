@@ -9,6 +9,7 @@ namespace PiDataAdayProje.Models.Entities
     public class Isyeri
     {
         public Guid Id { get; set; }
+        [Display(Name ="İşletme Adı")]
         public string IsletmeAdi { get; set; }
         public string Yetkili { get; set; }
         [DataType(DataType.Text)]

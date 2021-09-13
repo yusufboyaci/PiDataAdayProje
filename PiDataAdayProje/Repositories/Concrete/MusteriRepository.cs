@@ -18,10 +18,10 @@ namespace PiDataAdayProje.Repositories.Concrete
         public IQueryable<Musteri> Musteriler => _context.Musteriler;
 
         public Musteri GetById(Guid id) => _context.Musteriler.Find(id);
-       
+
 
         public bool MusteriEkle(Musteri musteri)
-        {
+        {          
             _context.Musteriler.Add(musteri);
             return _context.SaveChanges() > 0;
         }

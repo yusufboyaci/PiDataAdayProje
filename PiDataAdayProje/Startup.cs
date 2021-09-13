@@ -1,3 +1,5 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +35,12 @@ namespace PiDataAdayProje
             services.AddScoped<IEmlakRepository,EmlakRepository>();
             services.AddScoped<IIsyeriRepository, IsYeriRepository>();
             services.AddScoped<IMusteriRepository, MusteriRepository>();
+            services.AddNotyf(configure =>
+            {
+                configure.DurationInSeconds = 5;
+                configure.IsDismissable = true;
+                configure.Position = NotyfPosition.TopCenter;
+            });
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer("server=.;database=PiDataAdayDb;uid=yusuf;pwd=123"));
             services.AddIdentity<AppUser, AppRole>(x =>
             {
@@ -74,6 +82,7 @@ namespace PiDataAdayProje
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseNotyf();
             app.UseRouting();
 
             app.UseAuthorization();

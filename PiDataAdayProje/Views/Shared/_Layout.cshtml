@@ -31,9 +31,11 @@
                         else
                         {
                             <li class="nav-item-mr-auto">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Isyeri" asp-action="Index">Emlak İşletmesi Kaydı Yap </a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Isyeri" asp-action="Index">Emlak İşletmesi Listesi </a>
                             </li>
-                           
+                            <li class="nav-item-mr-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Musteri" asp-action="Index">Müşteri Listesi </a>
+                            </li>
                             <li class="nav-item-mr-auto">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Çıkış </a>
                             </li>
@@ -57,6 +59,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

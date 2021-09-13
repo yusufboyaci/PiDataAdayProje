@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using PiDataAdayProje.Models.Entities;
 using PiDataAdayProje.Repositories.Abstract;
 using System;
@@ -12,9 +13,11 @@ namespace PiDataAdayProje.Controllers
     public class IsYeriController : Controller
     {
         private readonly IIsyeriRepository _isyeriRepository;
-        public IsYeriController(IIsyeriRepository isyeriRepository)
+        private readonly INotyfService _notfy;
+        public IsYeriController(IIsyeriRepository isyeriRepository, INotyfService notyf)
         {
             _isyeriRepository = isyeriRepository;
+            _notfy = notyf;
         }
         public IActionResult Index() => View(_isyeriRepository.Isyeriler);
 
@@ -24,6 +27,7 @@ namespace PiDataAdayProje.Controllers
        public IActionResult Ekle(Isyeri isyeri)
         {
             _isyeriRepository.IsyeriEkle(isyeri);
+            _notfy.Success("İş Yeri Eklenmiştir.");
             return RedirectToAction("Index","IsYeri");
         }
         [HttpGet]
@@ -32,11 +36,13 @@ namespace PiDataAdayProje.Controllers
         public IActionResult Guncelle(Isyeri isyeri)
         {
             _isyeriRepository.IsyeriGuncelle(isyeri);
+            _notfy.Success("İş Yeri Güncellenmiştir.");
             return RedirectToAction("Index", "IsYeri");
         }
         public IActionResult Sil(Guid id)
         {
             _isyeriRepository.IsyeriSil(id);
+            _notfy.Success("İş Yeri Silinmiştir.");
             return RedirectToAction("Index", "Isyeri");
         }
     }

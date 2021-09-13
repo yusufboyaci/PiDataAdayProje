@@ -15,6 +15,7 @@ namespace PiDataAdayProje.Models.Entities
         [DataType(DataType.PhoneNumber)]
         public string Telefon { get; set; }
         [DataType(DataType.PhoneNumber)]
+        [Display(Name ="Cep Telefonu")]
         public string CepTelefon { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Mail { get; set; }
