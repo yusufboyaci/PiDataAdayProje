@@ -9,9 +9,9 @@ namespace PiDataAdayProje.Repositories.Abstract
     public interface IIsyeriRepository
     {
         IQueryable<Isyeri> Isyeriler { get; }
-        Isyeri GetById(int id);
+        Isyeri GetById(Guid id);
         bool IsyeriEkle(Isyeri isyeri);
         bool IsyeriGuncelle(Isyeri isyeri);
-        bool IsyeriSil(int id);
+        bool IsyeriSil(Guid id);
     }
 }

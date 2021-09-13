@@ -29,13 +29,13 @@ namespace PiDataAdayProje.Repositories.Concrete
             return _context.SaveChanges() > 0;
         }
 
-        public bool EmlakSil(int id)
+        public bool EmlakSil(Guid id)
         {
             _context.Emlaklar.Remove(GetById(id));
             return _context.SaveChanges() > 0;
         }
 
-        public Emlak GetById(int id) => _context.Emlaklar.Find(id);
+        public Emlak GetById(Guid id) => _context.Emlaklar.Find(id);
 
     }
 }

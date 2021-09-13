@@ -9,10 +9,10 @@ namespace PiDataAdayProje.Repositories.Abstract
     public interface IEmlakRepository
     {
         IQueryable<Emlak> Emlaklar { get; }
-        Emlak GetById(int id);
+        Emlak GetById(Guid id);
         bool EmlakEkle(Emlak emlak);
         bool EmlakGuncelle(Emlak emlak);
-        bool EmlakSil(int id);
+        bool EmlakSil(Guid id);
 
     }
 }

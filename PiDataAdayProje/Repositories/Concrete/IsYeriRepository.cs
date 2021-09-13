@@ -17,7 +17,7 @@ namespace PiDataAdayProje.Repositories.Concrete
         }
         public IQueryable<Isyeri> Isyeriler => _context.Isyeriler;
 
-        public Isyeri GetById(int id) => _context.Isyeriler.Find(id);
+        public Isyeri GetById(Guid id) => _context.Isyeriler.Find(id);
 
 
         public bool IsyeriEkle(Isyeri isyeri)
@@ -32,7 +32,7 @@ namespace PiDataAdayProje.Repositories.Concrete
             return _context.SaveChanges() > 0;
         }
 
-        public bool IsyeriSil(int id)
+        public bool IsyeriSil(Guid id)
         {
             _context.Isyeriler.Remove(GetById(id));
             return _context.SaveChanges() > 0;

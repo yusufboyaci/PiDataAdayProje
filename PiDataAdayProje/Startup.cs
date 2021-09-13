@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PiDataAdayProje.Models.Entities;
 using PiDataAdayProje.ProjectContext;
+using PiDataAdayProje.Repositories.Abstract;
+using PiDataAdayProje.Repositories.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,9 @@ namespace PiDataAdayProje
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IEmlakRepository,EmlakRepository>();
+            services.AddScoped<IIsyeriRepository, IsYeriRepository>();
+            services.AddScoped<IMusteriRepository, MusteriRepository>();
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer("server=.;database=PiDataAdayDb;uid=yusuf;pwd=123"));
             services.AddIdentity<AppUser, AppRole>(x =>
             {

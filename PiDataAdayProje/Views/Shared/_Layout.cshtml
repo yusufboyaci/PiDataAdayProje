@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - PiDataAdayProje</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("styles",required:false)
 </head>
 <body>
     <header>
@@ -29,6 +30,10 @@
                         }
                         else
                         {
+                            <li class="nav-item-mr-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Isyeri" asp-action="Index">Emlak İşletmesi Kaydı Yap </a>
+                            </li>
+                           
                             <li class="nav-item-mr-auto">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Çıkış </a>
                             </li>

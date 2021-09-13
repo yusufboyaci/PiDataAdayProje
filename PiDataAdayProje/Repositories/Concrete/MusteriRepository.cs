@@ -17,7 +17,7 @@ namespace PiDataAdayProje.Repositories.Concrete
         }
         public IQueryable<Musteri> Musteriler => _context.Musteriler;
 
-        public Musteri GetById(int id) => _context.Musteriler.Find(id);
+        public Musteri GetById(Guid id) => _context.Musteriler.Find(id);
        
 
         public bool MusteriEkle(Musteri musteri)
@@ -32,7 +32,7 @@ namespace PiDataAdayProje.Repositories.Concrete
             return _context.SaveChanges() > 0;
         }
 
-        public bool MusteriSil(int id)
+        public bool MusteriSil(Guid id)
         {
             _context.Musteriler.Remove(GetById(id));
             return _context.SaveChanges() > 0;

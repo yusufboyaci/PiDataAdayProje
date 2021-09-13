@@ -9,9 +9,9 @@ namespace PiDataAdayProje.Repositories.Abstract
     public interface IMusteriRepository
     {
         IQueryable<Musteri> Musteriler { get; }
-        Musteri GetById(int id);
+        Musteri GetById(Guid id);
         bool MusteriEkle(Musteri musteri);
         bool MusteriGuncelle(Musteri musteri);
-        bool MusteriSil(int id);
+        bool MusteriSil(Guid id);
     }
 }
