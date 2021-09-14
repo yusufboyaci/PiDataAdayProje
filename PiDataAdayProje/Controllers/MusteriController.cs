@@ -45,6 +45,8 @@ namespace PiDataAdayProje.Controllers
         }
 
 
+
+
         [HttpGet]
         public IActionResult Guncelle(Guid id) => View(_musteriRepository.GetById(id));
         [HttpPost]
