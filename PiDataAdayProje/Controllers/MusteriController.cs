@@ -29,8 +29,8 @@ namespace PiDataAdayProje.Controllers
         public IActionResult Ekle() => View();
         [HttpPost]
         public IActionResult Ekle(Musteri musteri)
-        {            
-            if (musteri.IsyeriId == Guid.Empty)
+        {
+            if (_isyeriRepository.Isyeriler.FirstOrDefault() == null)
             {
                 _notfy.Error("Kayıtlı işyeri bulunmadığı için Müşteri listesine ekleyemezsiniz!");
                 return RedirectToAction("Index", "Home");

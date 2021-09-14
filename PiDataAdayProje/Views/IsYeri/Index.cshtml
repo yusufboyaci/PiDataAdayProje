@@ -53,10 +53,10 @@
                 </td>
                 <td>
                     <a asp-controller="IsYeri" asp-action="Guncelle" asp-route-id="@item.Id">Güncelle</a> |
-                    
 
 
-                   
+
+
                     <a href="" data-toggle="modal" data-target="#exampleModal">
                         Sil
                     </a>
@@ -66,13 +66,13 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Silmek İstediğinize Emin misiniz?</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Silmek İstediğinize Emin misiniz?<br />Eğer İş Yerini silerseniz İş Yerine bağlı müşterilerde silenecektir!</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body text-center">
-                                    
+
                                     <a class="btn btn-danger text-center" asp-controller="IsYeri" asp-action="Sil" asp-route-id="@item.Id">Sil</a>
                                 </div>
                                 <div class="modal-footer">
