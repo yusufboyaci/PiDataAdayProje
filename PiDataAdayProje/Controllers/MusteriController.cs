@@ -21,7 +21,7 @@ namespace PiDataAdayProje.Controllers
             _notfy = notyf;
         }
         public IActionResult Index()
-        {            
+        {
             return View(_musteriRepository.Musteriler);
         }
 
@@ -29,20 +29,20 @@ namespace PiDataAdayProje.Controllers
         public IActionResult Ekle() => View();
         [HttpPost]
         public IActionResult Ekle(Musteri musteri)
-        {
-            if (_isyeriRepository.Isyeriler.ToList() == null)
+        {            
+            if (musteri.IsyeriId == Guid.Empty)
             {
-                _notfy.Warning("Kayıtlı işyeri bulunmadığı için Müşteri listesine ulaşamazsınız!");
+                _notfy.Error("Kayıtlı işyeri bulunmadığı için Müşteri listesine ekleyemezsiniz!");
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                musteri.IsyeriId = _isyeriRepository.GetById();//Buraya bak
+                musteri.IsyeriId = _isyeriRepository.Isyeriler.FirstOrDefault().Id;
                 _musteriRepository.MusteriEkle(musteri);
                 _notfy.Success("Müşteri Eklenmiştir.");
                 return RedirectToAction("Index", "Musteri");
             }
-            
+
         }
         [HttpGet]
         public IActionResult Guncelle(Guid id) => View(_musteriRepository.GetById(id));

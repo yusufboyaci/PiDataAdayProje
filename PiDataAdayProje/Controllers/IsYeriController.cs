@@ -26,7 +26,7 @@ namespace PiDataAdayProje.Controllers
        [HttpPost]
        public IActionResult Ekle(Isyeri isyeri)
         {
-            _isyeriRepository.IsyeriEkle(isyeri);
+            _isyeriRepository.IsyeriEkle(isyeri);           
             _notfy.Success("İş Yeri Eklenmiştir.");
             return RedirectToAction("Index","IsYeri");
         }

@@ -39,7 +39,7 @@ namespace PiDataAdayProje
             {
                 configure.DurationInSeconds = 5;
                 configure.IsDismissable = true;
-                configure.Position = NotyfPosition.TopCenter;
+                configure.Position = NotyfPosition.TopRight;
             });
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer("server=.;database=PiDataAdayDb;uid=yusuf;pwd=123"));
             services.AddIdentity<AppUser, AppRole>(x =>
