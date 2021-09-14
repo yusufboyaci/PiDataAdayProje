@@ -8,15 +8,10 @@
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-auto">
         <form asp-action="Guncelle">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="IsyeriId" class="control-label"></label>
-                <select asp-for="IsyeriId" class="form-control" asp-items="ViewBag.IsyeriId"></select>
-                <span asp-validation-for="IsyeriId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Id" />            
             <div class="form-group">
                 <label asp-for="Ad" class="control-label"></label>
                 <input asp-for="Ad" class="form-control" />

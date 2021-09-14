@@ -32,7 +32,7 @@ namespace PiDataAdayProje.Controllers
         {
             if (_isyeriRepository.Isyeriler.FirstOrDefault() == null)
             {
-                _notfy.Error("Kayıtlı işyeri bulunmadığı için Müşteri listesine ekleyemezsiniz!");
+                _notfy.Error("Kayıtlı işyeri bulunmadığı için Müşteri Listesine ekleyemezsiniz!");
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -42,16 +42,26 @@ namespace PiDataAdayProje.Controllers
                 _notfy.Success("Müşteri Eklenmiştir.");
                 return RedirectToAction("Index", "Musteri");
             }
-
         }
+
+
         [HttpGet]
         public IActionResult Guncelle(Guid id) => View(_musteriRepository.GetById(id));
         [HttpPost]
         public IActionResult Guncelle(Musteri musteri)
         {
-            _musteriRepository.MusteriGuncelle(musteri);
-            _notfy.Success("Müşteri Güncellenmiştir.");
-            return RedirectToAction("Index", "Musteri");
+            if (_isyeriRepository.Isyeriler.FirstOrDefault() == null)
+            {
+                _notfy.Error("Kayıtlı işyeri bulunmadığı için Müşteri Listesine ekleyemezsiniz!");
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                musteri.IsyeriId = _isyeriRepository.Isyeriler.FirstOrDefault().Id;
+                _musteriRepository.MusteriGuncelle(musteri);
+                _notfy.Success("Müşteri Güncellenmiştir.");
+                return RedirectToAction("Index", "Musteri");
+            }
         }
         public IActionResult Sil(Guid id)
         {

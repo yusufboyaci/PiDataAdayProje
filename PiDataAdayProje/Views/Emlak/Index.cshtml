@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Isyeri>
+﻿@model IEnumerable<Emlak>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,29 +6,36 @@
 @section styles{
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
 }
-<h1>İş Yeri Listesi</h1>
+
+
+<h1>Emlak Listesi</h1>
 
 <p>
-    <a asp-action="Ekle">İş Yeri Ekle</a>
+    <a asp-action="Ekle">Emlak Ekle</a>
 </p>
 <table id="dataTable" class="table table-striped table-bordered flex-nowrap" width="100%" cellspacing="0">
     <thead>
         <tr>
+           
             <th>
-                @Html.DisplayNameFor(model => model.IsletmeAdi)
+                @Html.DisplayNameFor(model => model.EmlakTuru)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Yetkili)
+                @Html.DisplayNameFor(model => model.Metrekare)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Adres)
+                @Html.DisplayNameFor(model => model.OdaSayisi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Telefon)
+                @Html.DisplayNameFor(model => model.Kat)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fax)
+                @Html.DisplayNameFor(model => model.BinaKati)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsinmaTuru)
+            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -36,26 +43,29 @@
         @foreach (var item in Model)
         {
             <tr>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsletmeAdi)
+                    @Html.DisplayFor(modelItem => item.EmlakTuru)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Yetkili)
+                    @Html.DisplayFor(modelItem => item.Metrekare)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Adres)
+                    @Html.DisplayFor(modelItem => item.OdaSayisi)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Telefon)
+                    @Html.DisplayFor(modelItem => item.Kat)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Fax)
+                    @Html.DisplayFor(modelItem => item.BinaKati)
                 </td>
                 <td>
-                    <a asp-controller="IsYeri" asp-action="Guncelle" asp-route-id="@item.Id">Güncelle</a> |
-
-
-
+                    @Html.DisplayFor(modelItem => item.IsinmaTuru)
+                </td>
+                
+                <td>
+                    <a asp-action="Guncelle" asp-route-id="@item.Id">Guncelle</a> |
+                   
 
                     <a href="" data-toggle="modal" data-target="#exampleModal">
                         Sil
@@ -66,14 +76,14 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title col-auto" id="exampleModalLabel">Silmek İstediğinize Emin misiniz?<br />Eğer İş Yerini silerseniz İş Yerine bağlı müşteriler ve emlaklar silenecektir!</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Silmek İstediğinize Emin misiniz?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body text-center">
-
-                                    <a class="btn btn-danger text-center" asp-controller="IsYeri" asp-action="Sil" asp-route-id="@item.Id">Sil</a>
+                                    
+                                    <a class="btn btn-danger text-center" asp-controller="Emlak" asp-action="Sil" asp-route-id="@item.Id">Sil</a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -82,7 +92,6 @@
                             </div>
                         </div>
                     </div>
-
                 </td>
             </tr>
         }

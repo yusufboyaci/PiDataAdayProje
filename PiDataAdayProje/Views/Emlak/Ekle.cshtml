@@ -1,0 +1,55 @@
+﻿@model Emlak
+
+@{
+    ViewData["Title"] = "Ekle";
+}
+
+<h1>Emlak Ekleme Bölümü<</h1>
+
+
+<div class="row">
+    <div class="col-auto">
+        <form asp-action="Ekle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmlakTuru" class="control-label"></label>
+                <input asp-for="EmlakTuru" class="form-control" />
+                <span asp-validation-for="EmlakTuru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Metrekare" class="control-label"></label>
+                <input asp-for="Metrekare" class="form-control" />
+                <span asp-validation-for="Metrekare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OdaSayisi" class="control-label"></label>
+                <input asp-for="OdaSayisi" class="form-control" />
+                <span asp-validation-for="OdaSayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kat" class="control-label"></label>
+                <input asp-for="Kat" class="form-control" />
+                <span asp-validation-for="Kat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BinaKati" class="control-label"></label>
+                <input asp-for="BinaKati" class="form-control" />
+                <span asp-validation-for="BinaKati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsinmaTuru" class="control-label"></label>
+                <select asp-for="IsinmaTuru" asp-items="Html.GetEnumSelectList<IsinmaTuru>()" class="form-control">
+                </select>
+                <span asp-validation-for="IsinmaTuru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>
+
